@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+	"-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd"
+>
+
+<mapper namespace="com.tdd.board.dao.BoardDAO">
+	<select id="getList" resultType="com.tdd.board.dto.BoardDTO">
+		SELECT
+			idx, user_name, subject, bhit
+		FROM
+			bbs 
+		ORDER BY idx DESC
+	</select>
+
+	<insert id="insert" parameterType="com.tdd.board.dto.BoardDTO">
+		INSERT INTO 
+			bbs(idx, user_name, subject, content, bhit) 
+		VALUES(bbs_seq.NEXTVAL, #{user_name}, #{subject}, #{content}, 0)
+	</insert>
+</mapper>
