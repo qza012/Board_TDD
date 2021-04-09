@@ -1,0 +1,9 @@
+.metadata/
+*.classpath
+*.project
+Servers/
+Board_TDD/src/main/resources/props/globals.properties
+*.class
+*.springBeans
+Board_TDD/.settings/
+Board_TDD/target/
