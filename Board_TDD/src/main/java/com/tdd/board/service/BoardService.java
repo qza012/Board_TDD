@@ -31,13 +31,24 @@ public class BoardService {
 		return mav;
 	}
 
-	public int insert(BoardDTO dto) {
-		log.info("insert");
+	public ModelAndView write(BoardDTO dto) {
+		log.info("write");
 
-		if(dto.getContent() == null || dto.getContent().equals("")) {
-			return 0;
-		}
+		ModelAndView mav = new ModelAndView();
 		
-		return dao.insert(dto);
+		if(dto.getContent() == null || dto.getContent().equals("")) {
+			mav.setViewName("writeForm");
+		} else {
+			dao.write(dto);
+			mav.setViewName("redirect:/list");
+		}
+
+		return mav;
 	}
+
+//	public ModelAndView detail(String idx) {
+//		log.info("detail");
+//		
+//		return dao.detail(idx);
+//	}
 }

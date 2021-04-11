@@ -24,23 +24,31 @@ public class BoardController {
 		this.service = service;
 	}
 	
-	@RequestMapping(value = "/")
+	@GetMapping(value = "/")
 	public ModelAndView List() {
 		log.info("boardList");
 		
 		return service.getList();
 	}
 	
-	@RequestMapping(value = "/insert")
-	public String insert(@ModelAttribute BoardDTO dto) {
-		log.info("insert");
-		String page = "redirect:/list";
-		
-		int result = service.insert(dto);
-		if(result == 0) {
-			page = "insert";
-		}
-		
-		return page;
+	@GetMapping(value = "/write")
+	public ModelAndView write(@ModelAttribute BoardDTO dto) {
+		log.info("write");
+
+		return service.write(dto);
 	}
+	
+//	@GetMapping(value = "/writeForm")
+//	public String writeForm(@RequestParam String idx) {
+//		log.info("writeForm");
+//		
+//		return "writeForm";
+//	}
+//	
+//	@GetMapping(value = "/detail")
+//	public ModelAndView detail(@RequestParam String idx) {
+//		log.info("detail");
+//		
+//		return service.detail(idx);
+//	}
 }
