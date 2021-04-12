@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tdd.board.dto.BoardDTO;
@@ -31,24 +33,38 @@ public class BoardController {
 		return service.getList();
 	}
 	
-	@GetMapping(value = "/write")
+	@PostMapping(value = "/write")
 	public ModelAndView write(@ModelAttribute BoardDTO dto) {
 		log.info("write");
 
 		return service.write(dto);
 	}
 	
-//	@GetMapping(value = "/writeForm")
-//	public String writeForm(@RequestParam String idx) {
-//		log.info("writeForm");
-//		
-//		return "writeForm";
-//	}
-//	
-//	@GetMapping(value = "/detail")
-//	public ModelAndView detail(@RequestParam String idx) {
-//		log.info("detail");
-//		
-//		return service.detail(idx);
-//	}
+	@GetMapping(value = "/writeForm")
+	public String writeForm() {
+		log.info("writeForm");
+		
+		return "writeForm";
+	}
+	
+	@GetMapping(value = "/detail")
+	public ModelAndView detail(@RequestParam String idx) {
+		log.info("detail");
+		
+		return service.detail(idx);
+	}
+	
+	@GetMapping(value = "/updateForm")
+	public ModelAndView updateForm(@RequestParam String idx) {
+		log.info("updateForm");
+		
+		return service.updateForm(idx);
+	}
+	
+	@PostMapping(value = "/update")
+	public ModelAndView update(@ModelAttribute BoardDTO dto){
+		log.info("update");
+		
+		return service.update(dto);
+	}
 }

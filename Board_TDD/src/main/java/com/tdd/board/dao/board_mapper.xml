@@ -13,9 +13,37 @@
 		ORDER BY idx DESC
 	</select>
 
-	<insert id="insert" parameterType="com.tdd.board.dto.BoardDTO">
+	<insert id="write" parameterType="com.tdd.board.dto.BoardDTO">
 		INSERT INTO 
 			bbs(idx, user_name, subject, content, bhit) 
 		VALUES(bbs_seq.NEXTVAL, #{user_name}, #{subject}, #{content}, 0)
 	</insert>
+	
+	<select id="detail" resultType="com.tdd.board.dto.BoardDTO">
+		SELECT 
+			idx, user_name, subject, content, bhit 
+		FROM 
+			bbs 
+		WHERE
+			idx = #{param1}
+	</select>
+	
+	<update id="upHit">
+		UPDATE 
+			bbs 
+		SET 
+			bHit = bHit + 1 
+		WHERE 
+			idx=#{param1}
+	</update>
+
+	<update id="update" parameterType="com.tdd.board.dto.BoardDTO">
+		UPDATE 
+			bbs 
+		SET 
+			content=#{content} 
+		WHERE 
+			idx=#{idx}
+	</update>
+
 </mapper>

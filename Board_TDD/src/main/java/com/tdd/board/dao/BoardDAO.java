@@ -2,8 +2,6 @@ package com.tdd.board.dao;
 
 import java.util.ArrayList;
 
-import org.springframework.web.servlet.ModelAndView;
-
 import com.tdd.board.dto.BoardDTO;
 
 public interface BoardDAO {
@@ -12,6 +10,10 @@ public interface BoardDAO {
 
 	int write(BoardDTO dto);
 
-	ModelAndView detail(String idx);
+	BoardDTO detail(String idx);
+
+	int upHit(String idx);
+
+	void update(BoardDTO dto);
 
 }

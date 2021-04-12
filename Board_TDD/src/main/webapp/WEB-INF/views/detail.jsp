@@ -10,21 +10,25 @@
 	<body>
 		<table>
 			<tr>
-				<th>글번호</th>
 				<th>제목</th>
-				<th>작성자</th>
-				<th>조회수</th>
+				<td>${board.subject}</td>
 			</tr>
-			<c:forEach items="${boardList}" var="board">
-				<tr>
-				<td>${board.idx }</td>
-				<td><a href="detail?idx=${board.idx}">${board.subject }</a></td>
-				<td>${board.user_name }</td>
+			<tr>
+				<th>작성자</th>
+				<td>${board.user_name}</td>
+			</tr>
+			<tr>
+				<th>내용</th>
+				<td>${board.content }</td>
+			</tr>
+			<tr>
+				<th>조회수</th>
 				<td>${board.bhit }</td>
-				</tr>
-			</c:forEach>
+			</tr>
+			<tr>
+				<td colspan="2"><button onclick="location.href='updateForm?idx=${board.idx }'">수정</button></td>
+			</tr>
 		</table>
-		<button onclick="location.href='writeForm'">글 쓰기</button>
 	</body>
 	<script></script>
 </html>
