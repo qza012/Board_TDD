@@ -48,14 +48,14 @@ public class BoardController {
 	}
 	
 	@GetMapping(value = "/detail")
-	public ModelAndView detail(@RequestParam String idx) {
+	public ModelAndView detail(@RequestParam int idx) {
 		log.info("detail");
 		
 		return service.detail(idx);
 	}
 	
 	@GetMapping(value = "/updateForm")
-	public ModelAndView updateForm(@RequestParam String idx) {
+	public ModelAndView updateForm(@RequestParam int idx) {
 		log.info("updateForm");
 		
 		return service.updateForm(idx);

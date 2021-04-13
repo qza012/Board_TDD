@@ -10,10 +10,10 @@ public interface BoardDAO {
 
 	int write(BoardDTO dto);
 
-	BoardDTO detail(String idx);
+	BoardDTO detail(int idx);
 
-	int upHit(String idx);
+	int upHit(int idx);
 
-	void update(BoardDTO dto);
+	int update(BoardDTO dto);
 
 }
