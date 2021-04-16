@@ -27,7 +27,7 @@ public class BoardController {
 	}
 	
 	@GetMapping(value = "/")
-	public ModelAndView List() {
+	public ModelAndView getList() {
 		log.info("boardList");
 		
 		return service.getList();
@@ -44,7 +44,7 @@ public class BoardController {
 	public String writeForm() {
 		log.info("writeForm");
 		
-		return "writeForm";
+		return "board/writeForm";
 	}
 	
 	@GetMapping(value = "/detail")

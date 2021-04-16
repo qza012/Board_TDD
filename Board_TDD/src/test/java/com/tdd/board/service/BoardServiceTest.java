@@ -2,8 +2,6 @@ package com.tdd.board.service;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -12,10 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tdd.board.dao.BoardDAO;
@@ -41,7 +36,7 @@ public class BoardServiceTest {
 		ModelAndView mav = boardService.detail(dto.getIdx());
 		
 		// then
-		assertThat(mav.getViewName(), is("detail"));
+		assertThat(mav.getViewName(), is("board/detail"));
 		assertThat(mav.getModel().get("board"), is(dto));
 	}
 	
@@ -55,7 +50,7 @@ public class BoardServiceTest {
 		ModelAndView mav = boardService.getList();
 		
 		// then
-		assertThat(mav.getViewName(), is("boardList"));
+		assertThat(mav.getViewName(), is("board/list"));
 		assertThat(mav.getModel().get("boardList"), is(boardList));
 	}
 	
@@ -98,7 +93,7 @@ public class BoardServiceTest {
 		ModelAndView actual = boardService.write(dto);
 		
 		// then
-		assertThat(actual.getViewName(), is("writeForm"));
+		assertThat(actual.getViewName(), is("board/writeForm"));
 	}
 	
 	private BoardDTO createBoard() {

@@ -5,10 +5,14 @@
 	<head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<style></style>
 	</head>
 	<body>
-		<table>
+	<h1>Hell</h1>
+		<table class="table table-hover">
 			<tr>
 				<th>글번호</th>
 				<th>제목</th>

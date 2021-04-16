@@ -34,7 +34,7 @@ public class BoardService {
 			mav.addObject("boardList", boardList);
 		}
 
-		mav.setViewName("boardList");
+		mav.setViewName("board/list");
 		
 		return mav;
 	}
@@ -42,7 +42,7 @@ public class BoardService {
 	public ModelAndView write(BoardDTO dto) {
 		log.info("write");
 		
-		String page = "writeForm";
+		String page = "board/writeForm";
 
 		if(dto.getContent() == null || dto.getContent().equals("")) {
 			mav.setViewName(page);
@@ -67,7 +67,7 @@ public class BoardService {
 		
 		if(upHitResult == 1 && board != null) {			
 			mav.addObject("board", dao.detail(idx));
-			page = "detail";
+			page = "board/detail";
 		}
 		
 		mav.setViewName(page);
@@ -79,7 +79,7 @@ public class BoardService {
 		log.info("updateForm");
 		
 		mav.addObject("board", dao.detail(idx));
-		mav.setViewName("updateForm");
+		mav.setViewName("board/updateForm");
 		
 		return mav;
 	}

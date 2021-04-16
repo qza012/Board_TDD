@@ -27,6 +27,7 @@
 				</tr>
 			</table>
 		</form>
+		<button onclick="location.href='/board'">목록</button>
 	</body>
 	<script></script>
 </html>

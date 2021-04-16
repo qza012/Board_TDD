@@ -29,6 +29,7 @@
 				<td colspan="2"><button onclick="location.href='updateForm?idx=${board.idx }'">수정</button></td>
 			</tr>
 		</table>
+		<button onclick="location.href='/board'">목록</button>
 	</body>
 	<script></script>
 </html>
